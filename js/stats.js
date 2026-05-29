@@ -1,6 +1,9 @@
 // ===== ЛОГИКА СТАТИСТИКИ =====
 
 document.addEventListener('DOMContentLoaded', function () {
+    showTelegramBackButton(function () {
+    window.location.href = 'index.html';
+});
     var content = document.getElementById('stats-content');
     var progress = getProgress();
 
