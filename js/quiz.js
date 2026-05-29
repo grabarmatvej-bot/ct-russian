@@ -11,6 +11,9 @@ var quizState = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+    showTelegramBackButton(function () {
+    window.location.href = 'index.html';
+});
     quizState.topicId = getPageData('currentTopicId');
     var originalTopic = TOPICS_DATA.find(function (t) { return t.id === quizState.topicId; });
 
