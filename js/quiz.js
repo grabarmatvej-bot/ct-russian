@@ -197,6 +197,8 @@ function confirmAnswer() {
     });
 
     addAnswerToProgress(quizState.topicId, quizState.isCorrect);
+    // Отправляем на сервер (асинхронно, не ждём ответа)
+    sendAnswerToServer(quizState.topicId, quizState.isCorrect);
 
     if (tg && tg.HapticFeedback) {
         if (quizState.isCorrect) {

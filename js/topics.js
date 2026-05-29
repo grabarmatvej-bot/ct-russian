@@ -1,10 +1,8 @@
 // ===== ЛОГИКА СПИСКА ТЕМ =====
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Кнопка назад Telegram
-    showTelegramBackButton(function () {
-        window.location.href = 'index.html';
-    });
+document.addEventListener('DOMContentLoaded', async function () {
+    // Сначала загрузим прогресс с сервера
+    await loadProgressFromServer();
 
     var list = document.getElementById('topics-list');
     var progress = getProgress();

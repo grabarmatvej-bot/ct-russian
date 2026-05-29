@@ -1,6 +1,12 @@
 // ===== ЛОГИКА ГЛАВНОЙ СТРАНИЦЫ =====
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    // Авторизация на сервере + загрузка прогресса
+    var user = await authUser();
+    if (user) {
+        await loadProgressFromServer();
+    }
+
     // Приветствие пользователя
     var userName = (typeof getTelegramUserName === 'function') ? getTelegramUserName() : null;
     var title = document.querySelector('.home-title');
