@@ -1,24 +1,7 @@
 // ===== ЛОГИКА ГЛАВНОЙ СТРАНИЦЫ =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    // ВРЕМЕННАЯ ДИАГНОСТИКА
-    var debugInfo = '';
-    debugInfo += 'tg существует: ' + (typeof tg !== 'undefined' && tg !== null) + '\n';
-
-    if (typeof tg !== 'undefined' && tg) {
-        debugInfo += 'tg.initData: ' + (tg.initData ? 'есть (' + tg.initData.length + ' символов)' : 'пусто') + '\n';
-        debugInfo += 'tg.initDataUnsafe: ' + JSON.stringify(tg.initDataUnsafe) + '\n';
-    }
-
-    debugInfo += 'tgUser: ' + JSON.stringify(typeof tgUser !== 'undefined' ? tgUser : 'undefined') + '\n';
-
-    // Показать инфу прямо на экране
-    var debugDiv = document.createElement('div');
-    debugDiv.style.cssText = 'background:#ffeb3b;color:#000;padding:10px;font-size:11px;white-space:pre-wrap;word-break:break-all;border:2px solid red;margin:10px;';
-    debugDiv.textContent = debugInfo;
-    document.body.insertBefore(debugDiv, document.body.firstChild);
-
-    // ----- ОСНОВНОЙ КОД -----
+    // Приветствие пользователя
     var userName = (typeof getTelegramUserName === 'function') ? getTelegramUserName() : null;
     var title = document.querySelector('.home-title');
 
@@ -31,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         subtitle.textContent = 'ЦТ/ЦЭ Русский язык — твой помощник в подготовке';
     }
 
+    // Статус подписки
     var badge = document.getElementById('subscription-badge');
     if (badge) {
         var status = getSubscriptionStatus();
