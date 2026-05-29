@@ -1,6 +1,9 @@
 // ===== ЛОГИКА СТРАНИЦЫ ТЕСТОВ ПО ГОДАМ =====
 
 document.addEventListener('DOMContentLoaded', function () {
+    showTelegramBackButton(function () {
+    window.location.href = 'index.html';
+});
     var list = document.getElementById('tests-list');
     var progress = getProgress();
 
