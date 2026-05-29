@@ -87,3 +87,29 @@ async function sendAnswerToServer(topicId, isCorrect) {
         isCorrect: isCorrect
     });
 }
+
+
+// ===== ПОЛУЧИТЬ СТАТУС ПОДПИСКИ =====
+async function loadSubscriptionFromServer() {
+    var result = await apiRequest('/api/subscription/status', {});
+    if (result && result.status) {
+        var localFormat = {
+            type: result.status.type,
+            hoursLeft: result.status.hoursLeft,
+            dateText: result.status.dateText
+        };
+        return localFormat;
+    }
+    return null;
+}
+
+
+// ===== АКТИВИРОВАТЬ ПОДПИСКУ =====
+async function activateSubscriptionOnServer(days, paymentChargeId, starsAmount, payload) {
+    return await apiRequest('/api/subscription/activate', {
+        days: days,
+        paymentChargeId: paymentChargeId,
+        starsAmount: starsAmount,
+        payload: payload
+    });
+}
